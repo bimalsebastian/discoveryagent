@@ -1,0 +1,30 @@
+catalog: bimal_data_discovery
+schema: data_discovery
+llm_endpoint: databricks-claude-3-7-sonnet
+prompts:
+  planner_prompt: "blah blah"
+  topic_classifier_prompt: "blah blah"
+  replanner_prompt: "blah blah"
+  genie_system_prompt: "blah blah"
+  vector_search_identity_tool_desc: 'blah blah'
+  vector_search_technical_tool_desc: 'blah blah'
+  vector_search_business_tool_desc: 'blah blah'
+  vector_search_governance_tool_desc: 'blah blah'
+agent_name: agent
+tools:
+  vector_search_identity_index: yourcatalog.yourschema.metadata_identity_idx
+  vector_search_technical_index: yourcatalog.yourschema.metadata_technical_idx
+  vector_search_business_index: yourcatalog.yourschema.metadata_business_idx
+  vector_search_governance_index: yourcatalog.yourschema.metadata_governance_idx
+  vector_search_embedding_endpoint: databricks-bge-large-en
+  genie_space_id: 01f09d571a1e1bf4bcbdc1c562fd1167
+  genie_agent_name: Genie
+  genie_table_schema: yourgenieschema
+lakebase_config:
+  instance_name: yourlakebaseinstancename
+  conn_db_name: yourlakebasedbname
+  conn_ssl_mode: require
+  conn_host: instance-XXXXXXXXXX.database.azuredatabricks.net
+  conn_port: 5432
+  workspace_host: https://adb-XXXXXXX.XXX.azuredatabricks.net
+  recursion_limit: 25
