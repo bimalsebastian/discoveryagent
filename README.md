@@ -449,42 +449,6 @@ Every state transition is checkpointed to PostgreSQL:
 
 ---
 
-## 🧪 Testing
-
-### Run Unit Tests
-```bash
-pytest tests/
-```
-
-### Test Planning
-```python
-from agentv1_7 import classify_topic, create_plan
-
-state = {"messages": [HumanMessage(content="Who owns wells_master?")]}
-state = classify_topic(state)
-state = create_plan(state)
-
-print(state["plan"].steps)
-```
-
-### Test Vector Search
-```bash
-# Test each domain index
-databricks vector-search query \
-  --index catalog.schema.metadata_identity_idx \
-  --query "wells_master ownership contact" \
-  --num-results 5
-```
-
-### Test State Persistence
-```python
-# Verify checkpoint tables exist
-state_manager.verify_checkpoint_tables()
-# Returns: {'checkpoints': True, 'checkpoint_blobs': True, 'checkpoint_writes': True}
-```
-
----
-
 ## 📊 Performance
 
 ### Typical Latency
@@ -576,21 +540,10 @@ isort .
 
 ---
 
-## 📚 Documentation
-
-- **[Technical Architecture Paper](docs/architecture.md)** - Comprehensive 20-page deep-dive
-- **[API Reference](docs/api.md)** - Complete API documentation
-- **[Deployment Guide](docs/deployment.md)** - Production deployment best practices
-- **[Prompt Engineering](docs/prompts.md)** - Guide to customizing prompts
-
----
-
 ## 🎓 Learn More
 
 ### Blog Posts
-- [Building a Planning-First AI Agent](https://medium.com/...) - Architecture overview
-- [Domain-Split Vector Search Strategy](https://medium.com/...) - Indexing deep-dive
-- [Persistent Conversations with PostgreSQL](https://medium.com/...) - State management
+- [Building a Planning-First AI Agent]
 
 ### Related Projects
 - [LangGraph](https://github.com/langchain-ai/langgraph) - Workflow orchestration framework
@@ -612,16 +565,6 @@ Built with:
 - [Databricks](https://databricks.com) for the platform
 - [MLflow](https://mlflow.org) for model serving
 - [Pydantic](https://docs.pydantic.dev/) for structured data
-
-Special thanks to the Databricks community for feedback and testing.
-
----
-
-## 📞 Support
-
-- **Issues**: [GitHub Issues](https://github.com/your-org/intelligent-planning-agent/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/your-org/intelligent-planning-agent/discussions)
-- **Email**: your-email@company.com
 
 ---
 
